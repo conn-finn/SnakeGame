@@ -33,7 +33,8 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
      */
     private void createNewRep() {
 
-        // TODO - fill in body
+        //creates an empty string to represent the natural number
+        this.rep = " ";
 
     }
 
@@ -45,9 +46,7 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
      * No-argument constructor.
      */
     public NaturalNumber3() {
-
-        // TODO - fill in body
-
+        this.createNewRep();
     }
 
     /**
@@ -59,7 +58,9 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
     public NaturalNumber3(int i) {
         assert i >= 0 : "Violation of: i >= 0";
 
-        // TODO - fill in body
+        this.createNewRep();
+        //convert the integer to a string to represent the natural number
+        this.rep = Integer.toString(i);
 
     }
 
@@ -74,7 +75,9 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
         assert s.matches("0|[1-9]\\d*") : ""
                 + "Violation of: there exists n: NATURAL (s = TO_STRING(n))";
 
-        // TODO - fill in body
+        //set our representation equal to s
+        this.createNewRep();
+        this.rep = s;
 
     }
 
@@ -87,7 +90,9 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
     public NaturalNumber3(NaturalNumber n) {
         assert n != null : "Violation of: n is not null";
 
-        // TODO - fill in body
+        //need to use the toString method since we only know the declared type
+        this.createNewRep();
+        this.rep = n.toString();
 
     }
 
