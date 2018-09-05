@@ -140,8 +140,11 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
         assert 0 <= k : "Violation of: 0 <= k";
         assert k < RADIX : "Violation of: k < 10";
 
-        // TODO - fill in body
-
+        //if either the natural number and the digit being added isn't zero, it will add that digit to the end
+        String digit = Integer.toString(k);
+        if (this.rep.length() > 0 || k > 0) {
+            this.rep = this.rep + digit;
+        }
     }
 
     @Override
