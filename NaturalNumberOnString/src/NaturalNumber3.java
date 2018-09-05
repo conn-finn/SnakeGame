@@ -35,7 +35,7 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
     private void createNewRep() {
 
         //creates an empty string to represent the natural number
-        this.rep = " ";
+        this.rep = "";
 
     }
 
@@ -155,11 +155,8 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
 
     @Override
     public final boolean isZero() {
-
-        // TODO - fill in body
-
-        // This line added just to make the component compilable.
-        return false;
+        //if the length of the string is zero, the natural number it represents is zero
+        return (this.rep.length() == 0);
     }
 
 }
