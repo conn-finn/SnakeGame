@@ -150,10 +150,14 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
     @Override
     public final int divideBy10() {
 
-        // TODO - fill in body
+        // Get last digit which is last character of this.rep
+        int remainder = Character
+                .getNumericValue(this.rep.charAt(this.rep.length() - 1));
 
-        // This line added just to make the component compilable.
-        return 0;
+        // Update this.rep to remove the last digit
+        this.rep = this.rep.substring(0, this.rep.length() - 1);
+
+        return remainder;
     }
 
     @Override
