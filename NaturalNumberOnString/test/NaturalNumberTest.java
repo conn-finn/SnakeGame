@@ -1,4 +1,9 @@
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
 import components.naturalnumber.NaturalNumber;
+import components.set.Set;
 
 /**
  * JUnit test fixture for {@code NaturalNumber}'s constructors and kernel
@@ -96,6 +101,26 @@ public abstract class NaturalNumberTest {
      * @ensures constructorRef = n
      */
     protected abstract NaturalNumber constructorRef(NaturalNumber n);
+
+    /*
+     * Tests of constructor
+     */
+    //
+    @Test
+    public void testNoArgConstructor_0() {
+        NaturalNumber n = this.constructorTest();
+        NaturalNumber nExpected = this.constructorRef();
+        assertEquals(n, nExpected);
+    }
+
+    @Test
+    public void testNoArgConstructor_1() {
+        Set<String> s = this.createFromArgsTest("apple", "orange", "banana",
+                "potato");
+        Set<String> sExpected = this.createFromArgsRef("apple", "orange",
+                "banana", "potato");
+        assertEquals(s, sExpected);
+    }
 
     // TODO - add test cases for four constructors, multiplyBy10, divideBy10, isZero
 
