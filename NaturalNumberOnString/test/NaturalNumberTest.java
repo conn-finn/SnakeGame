@@ -3,7 +3,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import components.naturalnumber.NaturalNumber;
-import components.set.Set;
 
 /**
  * JUnit test fixture for {@code NaturalNumber}'s constructors and kernel
@@ -107,19 +106,35 @@ public abstract class NaturalNumberTest {
      */
     //
     @Test
-    public void testNoArgConstructor_0() {
+    public void testNoArgConstructor() {
         NaturalNumber n = this.constructorTest();
         NaturalNumber nExpected = this.constructorRef();
         assertEquals(n, nExpected);
     }
 
     @Test
-    public void testNoArgConstructor_1() {
-        Set<String> s = this.createFromArgsTest("apple", "orange", "banana",
-                "potato");
-        Set<String> sExpected = this.createFromArgsRef("apple", "orange",
-                "banana", "potato");
-        assertEquals(s, sExpected);
+    public void testIntConstructor_0() {
+        int i = 267;
+        NaturalNumber n = this.constructorTest(i);
+        NaturalNumber nExpected = this.constructorRef(i);
+        assertEquals(n, nExpected);
+    }
+
+    @Test
+    public void testIntConstructor_1() {
+        int i = 0;
+        NaturalNumber n = this.constructorTest(i);
+        NaturalNumber nExpected = this.constructorRef(i);
+        assertEquals(n, nExpected);
+    }
+
+    @Test
+    public void testIntConstructor_2() {
+        //max int value + 10 is 2147483657
+        int i = Integer.MAX_VALUE + 10;
+        NaturalNumber n = this.constructorTest(i);
+        NaturalNumber nExpected = this.constructorRef(i);
+        assertEquals(n, nExpected);
     }
 
     // TODO - add test cases for four constructors, multiplyBy10, divideBy10, isZero
