@@ -1,3 +1,4 @@
+
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
@@ -139,4 +140,140 @@ public abstract class NaturalNumberTest {
 
     // TODO - add test cases for four constructors, multiplyBy10, divideBy10, isZero
 
+    /*
+     * isZero test cases.
+     */
+
+    /**
+     * Tests isZero for a no-argument constructor.
+     */
+    @Test
+    public final void testIsZeroDefault() {
+        // default value is 0
+        NaturalNumber n = this.constructorTest();
+        NaturalNumber nExpected = this.constructorRef(0);
+
+        assertEquals(n.isZero(), nExpected.isZero());
+    }
+
+    /**
+     * Tests isZero with a constructor which has an argument.
+     */
+    @Test
+    public final void testIsZeroTrue() {
+        NaturalNumber n = this.constructorTest(0);
+        NaturalNumber nExpected = this.constructorRef(0);
+
+        assertEquals(n.isZero(), nExpected.isZero());
+    }
+
+    /**
+     * Tests isZero in a routine case in which the value returned is false.
+     */
+    @Test
+    public final void testIsZeroFalse() {
+        NaturalNumber n = this.constructorTest(5);
+        NaturalNumber nExpected = this.constructorRef(5);
+
+        assertEquals(n.isZero(), nExpected.isZero());
+    }
+
+    /*
+     * multiplyBy10 test cases.
+     */
+
+    /**
+     * Tests multiplyBy10 in the boundary case in which n is zero.
+     */
+    @Test
+    public final void testMultiplyBy10Zero() {
+        NaturalNumber n = this.constructorTest();
+        NaturalNumber nExpected = this.constructorRef();
+
+        n.multiplyBy10(5);
+        nExpected.multiplyBy10(5);
+
+        assertEquals(n, nExpected);
+    }
+
+    /**
+     * Tests multiplyBy10 in a routine case.
+     */
+    @Test
+    public final void testMultiplyBy10NonZero() {
+        NaturalNumber n = this.constructorTest(123);
+        NaturalNumber nExpected = this.constructorRef(123);
+
+        n.multiplyBy10(4);
+        nExpected.multiplyBy10(4);
+
+        assertEquals(n, nExpected);
+    }
+
+    /**
+     * Tests multiplyBy10 in the challenging case in which n is greater than the
+     * max integer value.
+     */
+    @Test
+    public final void testMultiplyBy10OverMaxInt() {
+        String s = "1" + Integer.MAX_VALUE;
+        NaturalNumber n = this.constructorTest(s);
+        NaturalNumber nExpected = this.constructorRef(s);
+
+        n.multiplyBy10(3);
+        nExpected.multiplyBy10(3);
+
+        assertEquals(n, nExpected);
+    }
+
+    /*
+     * divideBy10 test cases
+     */
+
+    /**
+     * Tests divideBy10 in the boundary case in which n is zero.
+     */
+    @Test
+    public final void testDivideBy10Zero() {
+        NaturalNumber n = this.constructorTest();
+        NaturalNumber nExpected = this.constructorRef();
+
+        int nReturns = n.divideBy10();
+        int nExpectedReturns = nExpected.divideBy10();
+
+        assertEquals(nReturns, nExpectedReturns);
+        assertEquals(n, nExpected);
+
+    }
+
+    /**
+     * Tests divideBy10 in a routine case.
+     */
+    @Test
+    public final void testDivideBy10NonZero() {
+        NaturalNumber n = this.constructorTest(513);
+        NaturalNumber nExpected = this.constructorRef(513);
+
+        int nReturns = n.divideBy10();
+        int nExpectedReturns = nExpected.divideBy10();
+
+        assertEquals(nReturns, nExpectedReturns);
+        assertEquals(n, nExpected);
+    }
+
+    /**
+     * Tests divideBy10 in the challenging case in which n is greater than the
+     * max integer value.
+     */
+    @Test
+    public final void testDivideBy10OverMaxInt() {
+        String s = "" + Integer.MAX_VALUE + "0";
+        NaturalNumber n = this.constructorTest(s);
+        NaturalNumber nExpected = this.constructorRef(s);
+
+        int nReturns = n.divideBy10();
+        int nExpectedReturns = nExpected.divideBy10();
+        assertEquals(nReturns, nExpectedReturns);
+        assertEquals(n, nExpected);
+    }
 }
