@@ -16,7 +16,7 @@ import components.naturalnumber.NaturalNumberSecondary;
  * </pre>
  *
  * @author Connor Finneran
- * @author Anthony
+ * @author Anthony Yeretzian
  *
  */
 public class NaturalNumber3 extends NaturalNumberSecondary {
