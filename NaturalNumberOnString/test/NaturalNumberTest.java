@@ -137,6 +137,31 @@ public abstract class NaturalNumberTest {
         assertEquals(n, nExpected);
     }
 
+    @Test
+    public void testStringConstructor_0() {
+        String s = "0";
+        NaturalNumber n = this.constructorTest(s);
+        NaturalNumber nExpected = this.constructorRef(s);
+        assertEquals(n, nExpected);
+    }
+
+    @Test
+    public void testStringConstructor_1() {
+        String s = "0";
+        NaturalNumber n = this.constructorTest(s);
+        NaturalNumber nExpected = this.constructorRef(s);
+        assertEquals(n, nExpected);
+    }
+
+    @Test
+    public void testStringConstructor_2() {
+        //max int value + 10 is 2147483657
+        int i = Integer.MAX_VALUE + 10;
+        NaturalNumber n = this.constructorTest(i);
+        NaturalNumber nExpected = this.constructorRef(i);
+        assertEquals(n, nExpected);
+    }
+
     // TODO - add test cases for four constructors, multiplyBy10, divideBy10, isZero
 
 }
