@@ -105,7 +105,8 @@ public abstract class NaturalNumberTest {
     /*
      * Tests of constructor
      */
-    //
+
+    //no arguments
     @Test
     public void testNoArgConstructor() {
         NaturalNumber n = this.constructorTest();
@@ -113,6 +114,7 @@ public abstract class NaturalNumberTest {
         assertEquals(n, nExpected);
     }
 
+    //ints as arguments
     @Test
     public void testIntConstructor_0() {
         int i = 267;
@@ -131,13 +133,14 @@ public abstract class NaturalNumberTest {
 
     @Test
     public void testIntConstructor_2() {
-        //max int value + 10 is 2147483657
-        int i = Integer.MAX_VALUE + 10;
+        //max int value is 2147483647
+        int i = Integer.MAX_VALUE;
         NaturalNumber n = this.constructorTest(i);
         NaturalNumber nExpected = this.constructorRef(i);
         assertEquals(n, nExpected);
     }
 
+    //strings as arguments
     @Test
     public void testStringConstructor_0() {
         String s = "0";
@@ -148,7 +151,7 @@ public abstract class NaturalNumberTest {
 
     @Test
     public void testStringConstructor_1() {
-        String s = "0";
+        String s = "999999";
         NaturalNumber n = this.constructorTest(s);
         NaturalNumber nExpected = this.constructorRef(s);
         assertEquals(n, nExpected);
@@ -156,10 +159,10 @@ public abstract class NaturalNumberTest {
 
     @Test
     public void testStringConstructor_2() {
-        //max int value + 10 is 2147483657
-        int i = Integer.MAX_VALUE + 10;
-        NaturalNumber n = this.constructorTest(i);
-        NaturalNumber nExpected = this.constructorRef(i);
+        //tests above max int value
+        String s = "1" + Integer.toString(Integer.MAX_VALUE);
+        NaturalNumber n = this.constructorTest(s);
+        NaturalNumber nExpected = this.constructorRef(s);
         assertEquals(n, nExpected);
     }
 
@@ -176,9 +179,10 @@ public abstract class NaturalNumberTest {
     public final void testIsZeroDefault() {
         // default value is 0
         NaturalNumber n = this.constructorTest();
-        NaturalNumber nExpected = this.constructorRef(0);
+        //NaturalNumber nExpected = this.constructorRef(0);
 
-        assertEquals(n.isZero(), nExpected.isZero());
+        //assertEquals(n.isZero(), nExpected.isZero());
+        assertEquals(true, n.isZero());
     }
 
     /**
@@ -187,9 +191,10 @@ public abstract class NaturalNumberTest {
     @Test
     public final void testIsZeroTrue() {
         NaturalNumber n = this.constructorTest(0);
-        NaturalNumber nExpected = this.constructorRef(0);
+        //NaturalNumber nExpected = this.constructorRef(0);
 
-        assertEquals(n.isZero(), nExpected.isZero());
+        //assertEquals(n.isZero(), nExpected.isZero());
+        assertEquals(true, n.isZero());
     }
 
     /**
@@ -198,9 +203,10 @@ public abstract class NaturalNumberTest {
     @Test
     public final void testIsZeroFalse() {
         NaturalNumber n = this.constructorTest(5);
-        NaturalNumber nExpected = this.constructorRef(5);
+        //NaturalNumber nExpected = this.constructorRef(5);
 
-        assertEquals(n.isZero(), nExpected.isZero());
+        //assertEquals(n.isZero(), nExpected.isZero());
+        assertEquals(false, n.isZero());
     }
 
     /*
@@ -213,10 +219,11 @@ public abstract class NaturalNumberTest {
     @Test
     public final void testMultiplyBy10Zero() {
         NaturalNumber n = this.constructorTest();
-        NaturalNumber nExpected = this.constructorRef();
+        //NaturalNumber nExpected = this.constructorRef();
+        NaturalNumber nExpected = this.constructorRef(5);
 
         n.multiplyBy10(5);
-        nExpected.multiplyBy10(5);
+        //nExpected.multiplyBy10(5);
 
         assertEquals(n, nExpected);
     }
@@ -227,10 +234,11 @@ public abstract class NaturalNumberTest {
     @Test
     public final void testMultiplyBy10NonZero() {
         NaturalNumber n = this.constructorTest(123);
-        NaturalNumber nExpected = this.constructorRef(123);
+        //NaturalNumber nExpected = this.constructorRef(123);
+        NaturalNumber nExpected = this.constructorRef(1234);
 
         n.multiplyBy10(4);
-        nExpected.multiplyBy10(4);
+        //nExpected.multiplyBy10(4);
 
         assertEquals(n, nExpected);
     }
@@ -243,10 +251,11 @@ public abstract class NaturalNumberTest {
     public final void testMultiplyBy10OverMaxInt() {
         String s = "1" + Integer.MAX_VALUE;
         NaturalNumber n = this.constructorTest(s);
-        NaturalNumber nExpected = this.constructorRef(s);
+        //NaturalNumber nExpected = this.constructorRef(s);
+        NaturalNumber nExpected = this.constructorRef(s + "3");
 
         n.multiplyBy10(3);
-        nExpected.multiplyBy10(3);
+        //nExpected.multiplyBy10(3);
 
         assertEquals(n, nExpected);
     }
@@ -264,7 +273,8 @@ public abstract class NaturalNumberTest {
         NaturalNumber nExpected = this.constructorRef();
 
         int nReturns = n.divideBy10();
-        int nExpectedReturns = nExpected.divideBy10();
+        //int nExpectedReturns = nExpected.divideBy10();
+        int nExpectedReturns = 0;
 
         assertEquals(nReturns, nExpectedReturns);
         assertEquals(n, nExpected);
@@ -277,10 +287,12 @@ public abstract class NaturalNumberTest {
     @Test
     public final void testDivideBy10NonZero() {
         NaturalNumber n = this.constructorTest(513);
-        NaturalNumber nExpected = this.constructorRef(513);
+        //NaturalNumber nExpected = this.constructorRef(513);
+        NaturalNumber nExpected = this.constructorRef(51);
 
         int nReturns = n.divideBy10();
-        int nExpectedReturns = nExpected.divideBy10();
+        //int nExpectedReturns = nExpected.divideBy10();
+        int nExpectedReturns = 3;
 
         assertEquals(nReturns, nExpectedReturns);
         assertEquals(n, nExpected);
@@ -294,10 +306,13 @@ public abstract class NaturalNumberTest {
     public final void testDivideBy10OverMaxInt() {
         String s = "" + Integer.MAX_VALUE + "0";
         NaturalNumber n = this.constructorTest(s);
-        NaturalNumber nExpected = this.constructorRef(s);
+        //NaturalNumber nExpected = this.constructorRef(s);
+        NaturalNumber nExpected = this.constructorRef(Integer.MAX_VALUE);
 
         int nReturns = n.divideBy10();
-        int nExpectedReturns = nExpected.divideBy10();
+        //int nExpectedReturns = nExpected.divideBy10();
+        int nExpectedReturns = 0;
+
         assertEquals(nReturns, nExpectedReturns);
         assertEquals(n, nExpected);
     }
