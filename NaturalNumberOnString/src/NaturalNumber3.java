@@ -1,3 +1,4 @@
+
 import components.naturalnumber.NaturalNumber;
 import components.naturalnumber.NaturalNumberSecondary;
 
