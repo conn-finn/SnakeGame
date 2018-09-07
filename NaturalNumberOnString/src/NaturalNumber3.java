@@ -61,8 +61,14 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
         assert i >= 0 : "Violation of: i >= 0";
 
         this.createNewRep();
+
+        this.rep = "";
+        if (i > 0) {
+            this.rep = Integer.toString(i);
+        }
         //convert the integer to a string to represent the natural number
-        this.rep = Integer.toString(i);
+
+        //this.rep = Integer.toString(i);
 
     }
 
@@ -79,7 +85,11 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
 
         //set our representation equal to s
         this.createNewRep();
-        this.rep = s;
+        //this.rep = s;
+        this.rep = "";
+        if (s.length() > 0 && !s.equals("0")) {
+            this.rep = s;
+        }
 
     }
 
