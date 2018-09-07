@@ -166,6 +166,32 @@ public abstract class NaturalNumberTest {
         assertEquals(n, nExpected);
     }
 
+    /*
+     * Natural Number as the argument constructor tests
+     */
+    @Test
+    public void testNNConstructor_0() {
+        NaturalNumber nExpected = this.constructorRef(2342);
+        NaturalNumber n = this.constructorTest(nExpected);
+        assertEquals(n, nExpected);
+    }
+
+    @Test
+    public void testNNConstructor_1() {
+        //tests above max int value
+        NaturalNumber nExpected = this
+                .constructorRef("1" + Integer.toString(Integer.MAX_VALUE));
+        NaturalNumber n = this.constructorTest(nExpected);
+        assertEquals(n, nExpected);
+    }
+
+    @Test
+    public void testNNConstructor_2() {
+        NaturalNumber nExpected = this.constructorRef(0);
+        NaturalNumber n = this.constructorTest(nExpected);
+        assertEquals(n, nExpected);
+    }
+
     // TODO - add test cases for four constructors, multiplyBy10, divideBy10, isZero
 
     /*
@@ -304,7 +330,7 @@ public abstract class NaturalNumberTest {
      */
     @Test
     public final void testDivideBy10OverMaxInt() {
-        String s = "" + Integer.MAX_VALUE + "0";
+        String s = Integer.MAX_VALUE + "0";
         NaturalNumber n = this.constructorTest(s);
         //NaturalNumber nExpected = this.constructorRef(s);
         NaturalNumber nExpected = this.constructorRef(Integer.MAX_VALUE);

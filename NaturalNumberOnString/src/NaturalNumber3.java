@@ -37,6 +37,8 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
 
         //creates an empty string to represent the natural number
         this.rep = "";
+        //since we use "" as our representation of zero, we need to make sure
+        //that "0" will never be used
 
     }
 
@@ -62,13 +64,10 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
 
         this.createNewRep();
 
-        this.rep = "";
         if (i > 0) {
             this.rep = Integer.toString(i);
         }
         //convert the integer to a string to represent the natural number
-
-        //this.rep = Integer.toString(i);
 
     }
 
@@ -83,11 +82,10 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
         assert s.matches("0|[1-9]\\d*") : ""
                 + "Violation of: there exists n: NATURAL (s = TO_STRING(n))";
 
-        //set our representation equal to s
+        //set our representation equal to s if it is not equal to zero
         this.createNewRep();
-        //this.rep = s;
-        this.rep = "";
-        if (s.length() > 0 && !s.equals("0")) {
+
+        if (!s.equals("0")) {
             this.rep = s;
         }
 
@@ -104,7 +102,11 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
 
         //need to use the toString method since we only know the declared type
         this.createNewRep();
-        this.rep = n.toString();
+        String s = n.toString();
+
+        if (!s.equals("0")) {
+            this.rep = s;
+        }
 
     }
 
@@ -161,12 +163,17 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
     @Override
     public final int divideBy10() {
 
-        // Get last digit which is last character of this.rep
-        int remainder = Character
-                .getNumericValue(this.rep.charAt(this.rep.length() - 1));
+        //set the remainder to zero to return zero if the length of the natural number is zero
+        int remainder = 0;
 
-        // Update this.rep to remove the last digit
-        this.rep = this.rep.substring(0, this.rep.length() - 1);
+        if (this.rep.length() > 0) {
+            // Get last digit which is last character of this.rep
+            remainder = Character
+                    .getNumericValue(this.rep.charAt(this.rep.length() - 1));
+
+            // Update this.rep to remove the last digit
+            this.rep = this.rep.substring(0, this.rep.length() - 1);
+        }
 
         return remainder;
     }
