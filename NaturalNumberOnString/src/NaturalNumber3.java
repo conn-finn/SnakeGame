@@ -153,7 +153,10 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
         assert 0 <= k : "Violation of: 0 <= k";
         assert k < RADIX : "Violation of: k < 10";
 
-        //if either the natural number and the digit being added isn't zero, it will add that digit to the end
+        /*
+         * if either the natural number and the digit being added isn't zero, it
+         * will add that digit to the end
+         */
         String digit = Integer.toString(k);
         if (this.rep.length() > 0 || k > 0) {
             this.rep = this.rep + digit;
@@ -163,7 +166,10 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
     @Override
     public final int divideBy10() {
 
-        //set the remainder to zero to return zero if the length of the natural number is zero
+        /*
+         * set the remainder to zero to return zero if the length of the natural
+         * number is zero
+         */
         int remainder = 0;
 
         if (this.rep.length() > 0) {
@@ -180,7 +186,10 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
 
     @Override
     public final boolean isZero() {
-        //if the length of the string is zero, the natural number it represents is zero
+        /*
+         * if the length of the string is zero, the natural number it represents
+         * is zero
+         */
         return (this.rep.length() == 0);
     }
 
