@@ -1,4 +1,3 @@
-
 import components.naturalnumber.NaturalNumber;
 import components.naturalnumber.NaturalNumber1L;
 
