@@ -176,7 +176,7 @@ public abstract class NaturalNumberTest {
      * Test case for challenging string argument constructor.
      */
     @Test
-    public void testStringConstructorMaxInt() {
+    public void testStringConstructorOverMaxInt() {
         //tests above max int value
         String s = "1" + Integer.toString(Integer.MAX_VALUE);
         NaturalNumber n = this.constructorTest(s);
