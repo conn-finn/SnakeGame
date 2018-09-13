@@ -75,10 +75,11 @@ public class Map4<K, V> extends MapSecondary<K, V> {
     private static int mod(int a, int b) {
         assert b > 0 : "Violation of: b > 0";
 
-        // TODO - fill in body
-
-        // This line added just to make the component compilable.
-        return 0;
+        int num = a % b;
+        if (a < 0) {
+            num += b;
+        }
+        return num;
     }
 
     /**
