@@ -314,6 +314,19 @@ public abstract class NaturalNumberTest {
         assertEquals(n, nExpected);
     }
 
+    /**
+     * Test for boundary case where n is zero and adding zero.
+     */
+    @Test
+    public final void testMultiplyBy10ZeroAddZero() {
+        NaturalNumber n = this.constructorTest();
+        NaturalNumber nExpected = this.constructorRef();
+
+        n.multiplyBy10(0);
+
+        assertEquals(n, nExpected);
+    }
+
     /*
      * divideBy10 test cases
      */
